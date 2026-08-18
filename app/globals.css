@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: var(--font-crimson), "Crimson Text", Georgia, serif;
+  --font-sans: var(--font-dm-sans), "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-rethink: var(--font-rethink-sans), "Rethink Sans", sans-serif;
+  --font-mono: var(--font-roboto-mono), "Roboto Mono", monospace;
+
+  --color-olive-dark: #384718;
+  --color-olive-hover: #485c20;
+  --color-sage-light: #d6dfba;
+  --color-sage-hover: #c8d3a8;
+  --color-brand-green: #6e7e55;
+  --color-border-subtle: #e5e7eb;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #121417;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #ffffff;
+  color: #121417;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Custom Typography Utilities */
+.font-display-serif {
+  font-family: var(--font-serif);
+}
+
+.font-mono-num {
+  font-family: var(--font-mono);
+}
+
+.font-rethink-sans {
+  font-family: var(--font-rethink);
+}
+
+/* Smooth transitions */
+button, a {
+  transition: all 0.2s ease-in-out;
+}
+
