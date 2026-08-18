@@ -29,9 +29,9 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Area — Browse everything.",
+  title: "iExec — Browse everything.",
   description:
-    "Area provides real insights, without the data overload. A developer-friendly approach to streamline your business.",
+    "iExec provides real insights, without the data overload. A developer-friendly approach to streamline your business.",
   icons: {
     icon: "/favicon.ico",
   },

@@ -1,9 +1,45 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, useGSAP);
+}
 
 export default function MarqueeSection() {
+  const containerRef = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      gsap.from(contentRef.current, {
+        opacity: 0,
+        y: 30,
+        duration: 0.9,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    },
+    { scope: containerRef }
+  );
+
   return (
-    <section className="py-12 md:py-16 lg:py-20 border-b border-gray-100/80">
-      <div className="mx-auto max-w-[1240px] px-6 md:px-10 lg:px-12">
+    <section
+      ref={containerRef}
+      className="py-12 md:py-16 lg:py-20 border-b border-gray-100/80"
+    >
+      <div
+        ref={contentRef}
+        className="mx-auto max-w-[1240px] px-6 md:px-10 lg:px-12"
+      >
         <p className="text-xs font-mono-num text-gray-500 uppercase tracking-wider mb-6 md:mb-8">
           Trusted by:
         </p>
@@ -44,3 +80,4 @@ export default function MarqueeSection() {
     </section>
   );
 }
+
